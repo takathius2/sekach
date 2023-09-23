@@ -1,27 +1,20 @@
-//PrintWriterを機能させるパッケージ
-import java.io.IOException; //PrintWriterを機能させるパッケージ
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-//Http　ServretクラスはこのGenericServletを継承しているため機能させるのに必要なパッケージ
 import javax.servlet.ServletException;
-//アノテーションを機能させるパッケージ
 import javax.servlet.annotation.WebServlet;
-//Http Servletクラスを機能させるパッケージ
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.RegisterBean;
-/**
- * @(アノテーション＝注釈)でサーブレットを呼び出すURLを指定
- */
 
 @WebServlet("/register")
 /**
  * HttpServletクラスを継承することでサーブレットとして機能すると
  * RegisterSarvletクラスでWEBブラウザからリクエストを受け取れる
  */
-public class RegisterSarvlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 	//doPostメソッドを呼び出す
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 		throws IOException, ServletException{
@@ -43,11 +36,11 @@ public class RegisterSarvlet extends HttpServlet {
 		req.setAttribute("rb", rb);
 		
 		//register.jspへフォワード
-		RequestDispatcher rd = req.getRequestDispatcher("/regist.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
 		rd.forward(req, res);
 	}
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
-	throws IOExeception, ServletException {
+	throws IOException, ServletException {
 		doPost(req, res);
 	}
 }
