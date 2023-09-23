@@ -1,17 +1,5 @@
-
-
-
-/**
- *import java.io.IOException; //PrintWriterを機能させるパッケージ
- *import javax.servlet.annotation.WebServlet;
- *import javax.servlet.http.HttpServlet; //Http Servletクラスを機能させるパッケージ
- *import javax.servlet.http.HttpServletRequest;
- *import javax.servlet.http.HttpServletResponse;
- * import javax.servlet.ServletException;
- */
-
 //PrintWriterを機能させるパッケージ
-import java.io.IOException;
+import java.io.IOException; //PrintWriterを機能させるパッケージ
 
 import javax.servlet.RequestDispatcher;
 //Http　ServretクラスはこのGenericServletを継承しているため機能させるのに必要なパッケージ
@@ -39,12 +27,11 @@ public class RegisterSarvlet extends HttpServlet {
 		throws IOException, ServletException{
 		//リクエストの文字コード指定
 		req.setCharacterEncoding("utf-8");
-		
 		//入力情報の取得
 		String name = req.getParameter("name");
 		String age = req.getParameter("age");
 		String[] langs = req.getParameterValues("lang");
-		res.setContentType("text/html;charaset=utf-8");
+		res.setContentType("text/html;charset=utf-8");
 		
 		//Beanの作成
 		RegisterBean rb = new RegisterBean();
