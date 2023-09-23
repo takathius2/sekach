@@ -1,5 +1,5 @@
 <%--<%@～%>はディレクティブタグ。JSP→サーブレットに変換するのに必要な設定を記述する  --%>
-<%@page contentType="text/html; charset=UTF-8"
+<%@page contentType="text/html; charset=UTF-8"%>
 <jsp:useBean id="rb" scope="request" class="bean.RegisterBean"/>
 
 <!DOCTYPE html>
@@ -12,7 +12,9 @@
 	氏名:<strong><jsp:getProperty name="rb" property="name" /></strong><br/>
 	年齢:<strong><%= rb.getJpnAge() %></strong><br/>
 	開発経験:<strong><%= rb.getStrLangs() %></strong><br/><br/>
-	<input type="submit" value="登録" />
-	<input type="reset" value="戻る" />
+	<form action="/register" method="post">
+		<input type="submit" value="登録" />
+		<input type="button" value="戻る" onclick="history.back();" />
+	</form>
 </body>
 </html>

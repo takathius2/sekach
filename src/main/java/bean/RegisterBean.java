@@ -38,23 +38,24 @@ public class RegisterBean implements Serializable {
 	
 	//独自のメソッド1
 	public String getJpnAge() {
-		String jpnAge;
-		if(age.equals("child")) {
-			jpnAge = "18歳未満";
-		} else {
-			jpnAge = "18歳以上";
-		}
-		return jpnAge;
+	    if ("child".equals(age)) {
+	        return "18歳未満";
+	    } else {
+	        return "18歳以上";
+	    }
 	}
 	
 	//独自メソッド2
 	public String getStrLangs() {
-		String strLangs = "";
-		for(int i = 0; i < langs.length; i++) {
-			strLangs = strLangs + langs[i] + "";
-		}
-		return strLangs;
+	    if (langs == null) {
+	        return "";
+	    }
+	    
+	    StringBuilder strLangs = new StringBuilder();
+	    for (String lang : langs) {
+	        strLangs.append(lang);
+	    }
+	    return strLangs.toString();
 	}
-	
 	
 }
